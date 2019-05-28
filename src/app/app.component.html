@@ -1,11 +1,10 @@
     <div>
-    <div fxLayout="row" >
+    <div fxLayout="row" class="mat-display-4" >
       <div fxFlex>
-
         <button mat-button [routerLink]="['home']"><i class="material-icons">home</i></button>
       </div>
       <div fxFlex>
-        <button mat-button >Signup</button>
+        <button mat-button [routerLink]="['signup']">Signup</button>
       </div>
       <div fxFlex>
           <button mat-button >Log in</button>
@@ -15,5 +14,7 @@
       </div>
     </div>
    </div>
+   <div class="viewContainer">
     <router-outlet></router-outlet>
+  </div>
 

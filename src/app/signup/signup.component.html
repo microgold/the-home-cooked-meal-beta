@@ -1,0 +1,35 @@
+<div>
+    <mat-card>
+    <mat-card-title>Registration</mat-card-title>
+    <form ngForm #signupForm class="form" fxLayout="column">
+    <mat-form-field>
+      <input matInput placeholder="First Name" [(ngModel)]="user.firstname" name="name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Last Name" [(ngModel)]="user.lastname" name="name">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Address" [(ngModel)]="user.address" name="name"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="State"  name="select" (selectionChange)="onStateChanged($event.value)" >
+          <mat-option *ngFor="let state of states"  value="{{state}}">{{state}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+          <mat-select placeholder="City" >
+            <mat-option *ngFor="let city of cities" value="option">{{city}}</mat-option>
+          </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput placeholder="Zip"></textarea>
+    </mat-form-field>
+    <button
+    (click)="onRegisterUser()"
+    routerLink="/home"
+    mat-raised-button
+    color='primary'>Register
+   </button>
+  </form>
+</mat-card>
+  </div>
