@@ -7,4 +7,6 @@ export class User {
   state: string;
   zip: string;
   birthdate: Date;
+  email: string;
+  telephone: string;
 }
