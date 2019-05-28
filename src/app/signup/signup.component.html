@@ -12,17 +12,17 @@
       <textarea matInput placeholder="Address" [(ngModel)]="user.address" name="name"></textarea>
     </mat-form-field>
     <mat-form-field>
-        <mat-select placeholder="State"  name="select" (selectionChange)="onStateChanged($event.value)" >
+        <mat-select placeholder="State"  name="select" (selectionChange)="onStateChanged($event.value)"  [(ngModel)]="user.state" name="name">
           <mat-option *ngFor="let state of states"  value="{{state}}">{{state}}</mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field>
-          <mat-select placeholder="City" >
-            <mat-option *ngFor="let city of cities" value="option">{{city}}</mat-option>
+          <mat-select placeholder="City"   [(ngModel)]="user.city" name="name">
+            <mat-option *ngFor="let city of cities" value="{{city}}">{{city}}</mat-option>
           </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <textarea matInput placeholder="Zip"></textarea>
+        <textarea matInput placeholder="Zip"  [(ngModel)]="user.zip" name="name"></textarea>
     </mat-form-field>
     <button
     (click)="onRegisterUser()"
