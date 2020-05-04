@@ -1,8 +1,18 @@
-import { MatTabsModule, MatSidenavModule, MatMenuModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule, MatCardModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { LayoutComponent } from './layout/layout.component';
+
+
 
 @NgModule({
   imports: [
@@ -15,7 +25,6 @@ import { LayoutComponent } from './layout/layout.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatOptionModule,
     MatSelectModule,
     MatCardModule,
   ],
@@ -27,7 +36,6 @@ import { LayoutComponent } from './layout/layout.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatOptionModule,
     MatSelectModule,
     MatCardModule
   ],
