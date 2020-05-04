@@ -1,4 +1,5 @@
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,6 +19,7 @@ import { LayoutComponent } from './layout/layout.component';
   imports: [
     CommonModule,
     MatTabsModule,
+    MatToolbarModule,
     MatSidenavModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -30,6 +32,7 @@ import { LayoutComponent } from './layout/layout.component';
   ],
   exports: [
     MatTabsModule,
+    MatToolbarModule,
     MatSidenavModule,
     MatMenuModule,
     MatIconModule,
