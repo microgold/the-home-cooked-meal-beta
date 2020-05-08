@@ -26,13 +26,17 @@ export class UserService {
         return this.httpClient.get<number>(`${this.uribase}/nextUserId`);
     }
 
-  submitUser(user: User): Observable<any> {
+  submitUser(user: User): Observable<Object> {
      console.log(`posting to ${this.uribase}/user`)
-     return this.httpClient.post(`${this.uribase}/user`, user);
-  }
+     const postObservable = this.httpClient.post(`${this.uribase}/user`, user);
+     return postObservable;
+     }
+
 
   submitUserPhoto(avatar: Avatar): Observable<any> {
     console.log(`posting to ${this.uribase}/user/${avatar.userId}/upload`);
     return this.httpClient.post(`${this.uribase}/user/${avatar.userId}/upload`, avatar);
-  }
+    }
+
+
 }

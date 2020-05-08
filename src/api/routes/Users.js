@@ -58,34 +58,42 @@ function uploadUserPhoto(req, res) {
 // Post an Assignment
 function postUser(req, res) {
   console.log(`adding a new user ${req.body.lastname}`);
-  let user = new User()
-  user.firstname = req.body.firstname
-  user.lastname = req.body.lastname
-  user.email = req.body.email
-  user.birthdate = req.body.birthdate
-  user.id = req.body.id
-  user.address = req.body.address
-  user.state = req.body.state
-  user.city = req.body.city
-  user.zip = req.body.zip
+  const user = new User()
+  getAvailableId(lastId => {
+    user.id = lastId
+    user.firstname = req.body.firstname
+    user.lastname = req.body.lastname
+    user.email = req.body.email
+    user.birthdate = req.body.birthdate
+    user.address = req.body.address
+    user.state = req.body.state
+    user.city = req.body.city
+    user.zip = req.body.zip
 
-  user.save(err => {
-    if (err) {
-      res.send(err);
-    }
-    res.json({ message: `${user.email} saved!` });
-  });
+    user.save(err => {
+      if (err) {
+        console.log(`An error occurred ${err.message}`)
+        res.send(err)
+      }
+      else     {
+        console.log('User saved!')
+        res.json({ message: `${user.email} saved!` })
+      }
+    })
+})
 }
 
 // Update an assignment
 function updateUser(req, res) {
   User.findByIdAndUpdate(req.body._id, req.body, { new: true }, (err, user) => {
     if (err) {
-      res.send(err);
+      res.send(err)
     }
-    res.json({ message: `updated` });
+    else {
+      res.json({ message: `updated` })
+    }
     // console.log('updated ', assignment)
-  });
+  })
 }
 
 // Delete an assignment
@@ -98,17 +106,29 @@ function deleteUser(req, res) {
   });
 }
 
+function getAvailableId(lastIndexCallback) {
+  try {
+    User.find().sort("-id").exec((err, users) => {
+      if (users.length === 0) {
+        lastIndexCallback(1);
+      } else {
+        var max = users[0].id + 1;
+        lastIndexCallback(max);
+      }
+    })
+  }
+  catch(err) {
+   console.log(err.message)
+  }
+}
+
 // Get the next Assignment Id
 function getNextUserId(req, res) {
-  User.find().sort("-id").exec((err, users) => {
-    // handle no assignments case
-    if (users.length === 0) {
-      res.json(1);
-    } else {
-      var max = users[0].id;
-      res.json(max + 1);
-    }
-  });
+  try {
+    getAvailableId(id => res.json(id))
+  } catch (error) {
+  console.log(`An exception occurred --> ${error.message}`)
+  }
 }
 
 module.exports = {

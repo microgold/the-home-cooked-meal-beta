@@ -10,6 +10,7 @@ import { ChefSignupComponent } from './chef-signup/chef-signup.component';
 import { SignupComponent } from './signup/signup.component';
 import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     RoutingModule,
     LayoutModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [{provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'always'}}],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { LayoutComponent } from './layout/layout.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -29,6 +29,7 @@ import { LayoutComponent } from './layout/layout.component';
     MatInputModule,
     MatSelectModule,
     MatCardModule,
+    MatSnackBarModule
   ],
   exports: [
     MatTabsModule,
@@ -40,7 +41,8 @@ import { LayoutComponent } from './layout/layout.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
   ],
   declarations: [LayoutComponent]
 })

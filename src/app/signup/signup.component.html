@@ -3,7 +3,12 @@
     <mat-card-title>Registration</mat-card-title>
     <form ngForm #signupForm class="form" fxLayout="column">
     <mat-form-field>
-         <input matInput placeholder="email" [(ngModel)]="user.email" name="name">
+         <input id="email" matInput placeholder="email" [(ngModel)]="user.email" required name="email" #email="ngModel">
+         <div *ngIf="email.invalid && (email.dirty || email.touched)"   class="alert alert-danger">
+          <div *ngIf="email.errors.required" class ="validationError">
+              email is required.
+          </div>
+      </div>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="First Name" [(ngModel)]="user.firstname" name="name">
@@ -29,7 +34,6 @@
     </mat-form-field>
     <button
     (click)="onRegisterUser()"
-    routerLink="/home"
     mat-raised-button
     color='primary'>Register
    </button>
